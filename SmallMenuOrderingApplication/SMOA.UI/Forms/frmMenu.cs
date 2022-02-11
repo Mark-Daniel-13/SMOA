@@ -12,6 +12,8 @@ namespace SMOA.UI.Forms
 {
     public partial class frmMenu : Form
     {
+        private List<Business.Models.Product> loadedProductList;
+        private Business.Models.Product SelectedProduct;
         public frmMenu()
         {
             InitializeComponent();
@@ -42,9 +44,18 @@ namespace SMOA.UI.Forms
             btn.Height = 67;
             btn.Text = btnName;
             btn.FlatStyle = FlatStyle.Popup;
+            btn.Click += new EventHandler(BtnClick);
             return btn;
         }
+        void BtnClick(object sender, EventArgs e) {
+            var itemName = ((Button)sender).Text;
+            var productModel = loadedProductList.Where(p => p.Name == itemName).FirstOrDefault();
 
+            SelectedProduct = productModel;
+            lbNameVal.Text = productModel is not null ? productModel.Name : "";
+            lbDescVal.Text = productModel is not null ? productModel.Description : "";
+            lbPriceVal.Text = productModel is not null ? productModel.Price.ToString("N0") : "0.00";
+        }
         private void btnBurger_Click(object sender, EventArgs e)
         {
             ItemsPnl.Controls.Clear();
@@ -70,6 +81,11 @@ namespace SMOA.UI.Forms
                 {
                     AddItem(allBurgers[x - 1].Name, x, categoryType);
                 };
+
+                loadedProductList = allBurgers;
+                lbNameVal.Text = "";
+                lbDescVal.Text = "";
+                lbPriceVal.Text = "0.00";
             }
         }
     }

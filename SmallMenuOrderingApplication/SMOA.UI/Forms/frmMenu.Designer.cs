@@ -29,6 +29,10 @@ namespace SMOA.UI.Forms
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.categoriesPNL = new System.Windows.Forms.Panel();
             this.btnLO = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -39,11 +43,21 @@ namespace SMOA.UI.Forms
             this.lbCategory = new System.Windows.Forms.Label();
             this.MenuPanel = new System.Windows.Forms.Panel();
             this.MenuFooterPnl = new System.Windows.Forms.Panel();
+            this.lbDescVal = new System.Windows.Forms.Label();
+            this.lbNameVal = new System.Windows.Forms.Label();
+            this.lbProductDesc = new System.Windows.Forms.Label();
+            this.lbProductName = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.lbTotalValue = new System.Windows.Forms.Label();
-            this.lbTotalText = new System.Windows.Forms.Label();
+            this.lbPriceVal = new System.Windows.Forms.Label();
+            this.lbPrice = new System.Windows.Forms.Label();
             this.ItemsPnl = new System.Windows.Forms.Panel();
             this.CartListPanel = new System.Windows.Forms.Panel();
+            this.lbTotalVal = new System.Windows.Forms.Label();
+            this.lbTotal = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Product = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlLOOheader = new System.Windows.Forms.Panel();
             this.lbLlistOfOrders = new System.Windows.Forms.Label();
             this.categoriesPNL.SuspendLayout();
@@ -52,6 +66,7 @@ namespace SMOA.UI.Forms
             this.MenuPanel.SuspendLayout();
             this.MenuFooterPnl.SuspendLayout();
             this.CartListPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.pnlLOOheader.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -179,64 +194,192 @@ namespace SMOA.UI.Forms
             // MenuFooterPnl
             // 
             this.MenuFooterPnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(239)))), ((int)(((byte)(141)))), ((int)(((byte)(83)))));
+            this.MenuFooterPnl.Controls.Add(this.lbDescVal);
+            this.MenuFooterPnl.Controls.Add(this.lbNameVal);
+            this.MenuFooterPnl.Controls.Add(this.lbProductDesc);
+            this.MenuFooterPnl.Controls.Add(this.lbProductName);
             this.MenuFooterPnl.Controls.Add(this.button1);
-            this.MenuFooterPnl.Controls.Add(this.lbTotalValue);
-            this.MenuFooterPnl.Controls.Add(this.lbTotalText);
+            this.MenuFooterPnl.Controls.Add(this.lbPriceVal);
+            this.MenuFooterPnl.Controls.Add(this.lbPrice);
             this.MenuFooterPnl.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.MenuFooterPnl.Location = new System.Drawing.Point(0, 592);
+            this.MenuFooterPnl.Location = new System.Drawing.Point(0, 542);
             this.MenuFooterPnl.Name = "MenuFooterPnl";
-            this.MenuFooterPnl.Size = new System.Drawing.Size(673, 58);
+            this.MenuFooterPnl.Size = new System.Drawing.Size(679, 108);
             this.MenuFooterPnl.TabIndex = 0;
+            // 
+            // lbDescVal
+            // 
+            this.lbDescVal.AutoSize = true;
+            this.lbDescVal.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbDescVal.Location = new System.Drawing.Point(119, 34);
+            this.lbDescVal.Name = "lbDescVal";
+            this.lbDescVal.Size = new System.Drawing.Size(0, 19);
+            this.lbDescVal.TabIndex = 11;
+            // 
+            // lbNameVal
+            // 
+            this.lbNameVal.AutoSize = true;
+            this.lbNameVal.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbNameVal.Location = new System.Drawing.Point(119, 11);
+            this.lbNameVal.Name = "lbNameVal";
+            this.lbNameVal.Size = new System.Drawing.Size(0, 19);
+            this.lbNameVal.TabIndex = 10;
+            // 
+            // lbProductDesc
+            // 
+            this.lbProductDesc.AutoSize = true;
+            this.lbProductDesc.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbProductDesc.Location = new System.Drawing.Point(19, 34);
+            this.lbProductDesc.Name = "lbProductDesc";
+            this.lbProductDesc.Size = new System.Drawing.Size(84, 19);
+            this.lbProductDesc.TabIndex = 9;
+            this.lbProductDesc.Text = "Description:";
+            // 
+            // lbProductName
+            // 
+            this.lbProductName.AutoSize = true;
+            this.lbProductName.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbProductName.Location = new System.Drawing.Point(19, 11);
+            this.lbProductName.Name = "lbProductName";
+            this.lbProductName.Size = new System.Drawing.Size(49, 19);
+            this.lbProductName.TabIndex = 8;
+            this.lbProductName.Text = "Name:";
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(477, 17);
+            this.button1.Location = new System.Drawing.Point(489, 69);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(184, 31);
             this.button1.TabIndex = 7;
-            this.button1.Text = "Proceed to Check Out";
+            this.button1.Text = "Add To Cart";
             this.button1.UseVisualStyleBackColor = false;
             // 
-            // lbTotalValue
+            // lbPriceVal
             // 
-            this.lbTotalValue.AutoSize = true;
-            this.lbTotalValue.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbTotalValue.Location = new System.Drawing.Point(91, 18);
-            this.lbTotalValue.Name = "lbTotalValue";
-            this.lbTotalValue.Size = new System.Drawing.Size(84, 30);
-            this.lbTotalValue.TabIndex = 2;
-            this.lbTotalValue.Text = "10,000";
+            this.lbPriceVal.AutoSize = true;
+            this.lbPriceVal.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbPriceVal.Location = new System.Drawing.Point(119, 69);
+            this.lbPriceVal.Name = "lbPriceVal";
+            this.lbPriceVal.Size = new System.Drawing.Size(84, 30);
+            this.lbPriceVal.TabIndex = 2;
+            this.lbPriceVal.Text = "10,000";
             // 
-            // lbTotalText
+            // lbPrice
             // 
-            this.lbTotalText.AutoSize = true;
-            this.lbTotalText.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbTotalText.Location = new System.Drawing.Point(15, 19);
-            this.lbTotalText.Name = "lbTotalText";
-            this.lbTotalText.Size = new System.Drawing.Size(70, 30);
-            this.lbTotalText.TabIndex = 1;
-            this.lbTotalText.Text = "Total:";
+            this.lbPrice.AutoSize = true;
+            this.lbPrice.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbPrice.Location = new System.Drawing.Point(19, 70);
+            this.lbPrice.Name = "lbPrice";
+            this.lbPrice.Size = new System.Drawing.Size(71, 30);
+            this.lbPrice.TabIndex = 1;
+            this.lbPrice.Text = "Price:";
             // 
             // ItemsPnl
             // 
             this.ItemsPnl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ItemsPnl.Location = new System.Drawing.Point(0, 0);
             this.ItemsPnl.Name = "ItemsPnl";
-            this.ItemsPnl.Size = new System.Drawing.Size(673, 650);
+            this.ItemsPnl.Size = new System.Drawing.Size(679, 650);
             this.ItemsPnl.TabIndex = 1;
             // 
             // CartListPanel
             // 
             this.CartListPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(216)))), ((int)(((byte)(234)))));
+            this.CartListPanel.Controls.Add(this.lbTotalVal);
+            this.CartListPanel.Controls.Add(this.lbTotal);
+            this.CartListPanel.Controls.Add(this.dataGridView1);
             this.CartListPanel.Controls.Add(this.pnlLOOheader);
             this.CartListPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.CartListPanel.Location = new System.Drawing.Point(673, 0);
+            this.CartListPanel.Location = new System.Drawing.Point(679, 0);
             this.CartListPanel.Name = "CartListPanel";
-            this.CartListPanel.Size = new System.Drawing.Size(266, 650);
+            this.CartListPanel.Size = new System.Drawing.Size(260, 650);
             this.CartListPanel.TabIndex = 0;
+            // 
+            // lbTotalVal
+            // 
+            this.lbTotalVal.AutoSize = true;
+            this.lbTotalVal.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbTotalVal.Location = new System.Drawing.Point(164, 448);
+            this.lbTotalVal.Name = "lbTotalVal";
+            this.lbTotalVal.Size = new System.Drawing.Size(84, 30);
+            this.lbTotalVal.TabIndex = 5;
+            this.lbTotalVal.Text = "10,000";
+            // 
+            // lbTotal
+            // 
+            this.lbTotal.AutoSize = true;
+            this.lbTotal.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbTotal.Location = new System.Drawing.Point(6, 448);
+            this.lbTotal.Name = "lbTotal";
+            this.lbTotal.Size = new System.Drawing.Size(70, 30);
+            this.lbTotal.TabIndex = 4;
+            this.lbTotal.Text = "Total:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Product,
+            this.Qty,
+            this.SubTotal});
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView1.Location = new System.Drawing.Point(6, 99);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowTemplate.Height = 25;
+            this.dataGridView1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(248, 331);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // Product
+            // 
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Product.DefaultCellStyle = dataGridViewCellStyle6;
+            this.Product.HeaderText = "Product";
+            this.Product.Name = "Product";
+            this.Product.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Qty
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Qty.DefaultCellStyle = dataGridViewCellStyle7;
+            this.Qty.FillWeight = 50F;
+            this.Qty.HeaderText = "Qty";
+            this.Qty.Name = "Qty";
+            this.Qty.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.FillWeight = 50F;
+            this.SubTotal.HeaderText = "SubTotal";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // pnlLOOheader
             // 
@@ -245,7 +388,7 @@ namespace SMOA.UI.Forms
             this.pnlLOOheader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlLOOheader.Location = new System.Drawing.Point(0, 0);
             this.pnlLOOheader.Name = "pnlLOOheader";
-            this.pnlLOOheader.Size = new System.Drawing.Size(266, 90);
+            this.pnlLOOheader.Size = new System.Drawing.Size(260, 90);
             this.pnlLOOheader.TabIndex = 2;
             // 
             // lbLlistOfOrders
@@ -280,6 +423,8 @@ namespace SMOA.UI.Forms
             this.MenuFooterPnl.ResumeLayout(false);
             this.MenuFooterPnl.PerformLayout();
             this.CartListPanel.ResumeLayout(false);
+            this.CartListPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.pnlLOOheader.ResumeLayout(false);
             this.pnlLOOheader.PerformLayout();
             this.ResumeLayout(false);
@@ -300,7 +445,7 @@ namespace SMOA.UI.Forms
         private System.Windows.Forms.Button btnLO;
         private System.Windows.Forms.Panel MenuPanel;
         private System.Windows.Forms.Panel MenuFooterPnl;
-        private System.Windows.Forms.Label lbTotalText;
+        private System.Windows.Forms.Label b;
         private System.Windows.Forms.Label lbTotalValue;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel PanelBurgers;
@@ -314,5 +459,21 @@ namespace SMOA.UI.Forms
         private System.Windows.Forms.Label lbLOO;
         private System.Windows.Forms.Panel pnlLBOOheader;
         private System.Windows.Forms.Label lbNote;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lb;
+        private System.Windows.Forms.Label lbPrice;
+        private System.Windows.Forms.Label lbPriceVal;
+        private System.Windows.Forms.Label lbTotalVal;
+        private System.Windows.Forms.Label lbTotal;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lbProductName;
+        private System.Windows.Forms.Label lbProductDesc;
+        private System.Windows.Forms.Label lbNameVal;
+        private System.Windows.Forms.Label lbDescVal;
     }
 }
