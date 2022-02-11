@@ -20,6 +20,7 @@ namespace SMOA.UI.Forms
         private double discount = 0.00;
         private double tax = 0.00;
         private double subtotal = 0.00;
+        private double total = 0.00;
         public frmMenu()
         {
             InitializeComponent();
@@ -112,7 +113,8 @@ namespace SMOA.UI.Forms
             if (CartList is not null && CartList.Count > 0) {
 
                 var discountedTotal = subtotal - discount;
-                lbTotalVal.Text = (discountedTotal + tax).ToString("N2");
+                total = (discountedTotal + tax);
+                lbTotalVal.Text = total.ToString("N2");
             }
         }
         private void ComputeDiscount() {
@@ -141,14 +143,17 @@ namespace SMOA.UI.Forms
             GroupList();
             
         }
-        private void GroupList() {
-            var groupedList = CartList.GroupBy(c => c.ProductName)
+        private List<Viewmodel.CartListViewModel> SumQtySubTotal() { 
+            return CartList.GroupBy(c => c.ProductName)
                                             .Select(cl => new Viewmodel.CartListViewModel
                                             {
                                                 ProductName = cl.First().ProductName,
                                                 Qty = cl.Sum(q => q.Qty),
                                                 SubTotal = cl.Sum(s => s.SubTotal),
                                             }).ToList();
+        }
+        private void GroupList() {
+            var groupedList = SumQtySubTotal();
 
             cartListDGV.DataSource = groupedList;
             cartListDGV.ClearSelection();
@@ -235,6 +240,55 @@ namespace SMOA.UI.Forms
                     ComputeTax();
                 }
             }
+        }
+        
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+            using (var frmCheckOut = new frmCheckOut()) {
+                if (frmCheckOut.ShowDialog() == DialogResult.OK) {
+                    var transactionModel = new Business.Models.Transaction() {
+                        Tax = tax,
+                        Discount = discount,
+                        TotalAmount = total,
+                    };
+                    var cartItems = SumQtySubTotal();
+
+                    var transactionDetailModel = new List<Business.Models.TransactionDetails>();
+                    transactionDetailModel = cartItems.Select(item => new Business.Models.TransactionDetails() { 
+                        ProductId = (int)Business.Facades.Product.GetByName(item.ProductName)?.ProductId,
+                        Quantity = item.Qty,
+                    }).ToList();
+
+                    var queryTransaction = Business.Facades.Transaction.AddTransaction(transactionModel, transactionDetailModel);
+                    if (queryTransaction)
+                    {
+                        ClearMenu();
+                        MessageBox.Show("Order Successfully Made!");
+                    }
+                    else {
+                        MessageBox.Show("Order Failed, Please To Check Out Again!");
+                    }
+                }
+            }
+        }
+        private void ClearMenu()
+        {
+            loadedProductList.Clear();
+            SelectedProduct = null;
+            CartList.Clear();
+            selectedItemOnCart = null;
+
+            discount = 0.00;
+            lbDiscountVal.Text = discount.ToString("N2");
+            tax = 0.00;
+            lbTaxVal.Text = tax.ToString("N2");
+            subtotal = 0.00;
+            lbSubTotalVal.Text = subtotal.ToString("N2");
+            total = 0.00;
+            lbTotalVal.Text = subtotal.ToString("N2");
+            cartListDGV.DataSource = null;
+            cartListDGV.Refresh();
+            btnBurger.PerformClick();
         }
     }
 }

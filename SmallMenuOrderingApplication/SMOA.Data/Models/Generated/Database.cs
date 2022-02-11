@@ -297,6 +297,102 @@ namespace SMOA.Data
 
     
 
+	[TableName("smoa.transaction")]
+
+
+
+	[PrimaryKey("TransactionId")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class transaction : SMOADB.Record<transaction>  
+    {
+
+
+
+		[Column] public int TransactionId { get; set; }
+
+
+
+
+
+		[Column] public double Discount { get; set; }
+
+
+
+
+
+		[Column] public double Tax { get; set; }
+
+
+
+
+
+		[Column] public double TotalAmount { get; set; }
+
+
+
+
+
+		[Column] public DateTime CreationDate { get; set; }
+
+
+
+
+
+		[Column] public DateTime? EndDate { get; set; }
+
+
+
+	}
+
+    
+
+	[TableName("smoa.transactiondetails")]
+
+
+
+	[PrimaryKey("TransactionDetailId")]
+
+
+
+
+	[ExplicitColumns]
+
+    public partial class transactiondetail : SMOADB.Record<transactiondetail>  
+    {
+
+
+
+		[Column] public int TransactionDetailId { get; set; }
+
+
+
+
+
+		[Column] public int TransactionId { get; set; }
+
+
+
+
+
+		[Column] public int ProductId { get; set; }
+
+
+
+
+
+		[Column] public int Quantity { get; set; }
+
+
+
+	}
+
+    
+
 	[TableName("smoa.user")]
 
 

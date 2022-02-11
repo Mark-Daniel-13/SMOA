@@ -29,11 +29,12 @@ namespace SMOA.UI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.categoriesPNL = new System.Windows.Forms.Panel();
+            this.btnTax = new System.Windows.Forms.Button();
             this.btnLO = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnCm = new System.Windows.Forms.Button();
@@ -72,7 +73,7 @@ namespace SMOA.UI.Forms
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlLOOheader = new System.Windows.Forms.Panel();
             this.lbLlistOfOrders = new System.Windows.Forms.Label();
-            this.btnTax = new System.Windows.Forms.Button();
+            this.btnViewOrders = new System.Windows.Forms.Button();
             this.categoriesPNL.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.HeaderPNL.SuspendLayout();
@@ -86,6 +87,7 @@ namespace SMOA.UI.Forms
             // categoriesPNL
             // 
             this.categoriesPNL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(216)))), ((int)(((byte)(234)))));
+            this.categoriesPNL.Controls.Add(this.btnViewOrders);
             this.categoriesPNL.Controls.Add(this.btnTax);
             this.categoriesPNL.Controls.Add(this.btnLO);
             this.categoriesPNL.Controls.Add(this.tableLayoutPanel1);
@@ -95,6 +97,20 @@ namespace SMOA.UI.Forms
             this.categoriesPNL.Name = "categoriesPNL";
             this.categoriesPNL.Size = new System.Drawing.Size(229, 743);
             this.categoriesPNL.TabIndex = 0;
+            // 
+            // btnTax
+            // 
+            this.btnTax.BackColor = System.Drawing.Color.Transparent;
+            this.btnTax.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnTax.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTax.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnTax.Location = new System.Drawing.Point(0, 681);
+            this.btnTax.Name = "btnTax";
+            this.btnTax.Size = new System.Drawing.Size(229, 31);
+            this.btnTax.TabIndex = 7;
+            this.btnTax.Text = "Configure Tax (%)";
+            this.btnTax.UseVisualStyleBackColor = false;
+            this.btnTax.Click += new System.EventHandler(this.btnTax_Click);
             // 
             // btnLO
             // 
@@ -426,6 +442,7 @@ namespace SMOA.UI.Forms
             this.btnCheckOut.TabIndex = 10;
             this.btnCheckOut.Text = "Check Out";
             this.btnCheckOut.UseVisualStyleBackColor = false;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
             // btnAddDiscount
             // 
@@ -486,28 +503,28 @@ namespace SMOA.UI.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cartListDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.cartListDGV.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cartListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cartListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.cartListDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cartListDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CartId,
             this.ProductName,
             this.Qty,
             this.SubTotal});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cartListDGV.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cartListDGV.DefaultCellStyle = dataGridViewCellStyle4;
             this.cartListDGV.Location = new System.Drawing.Point(6, 99);
             this.cartListDGV.MultiSelect = false;
             this.cartListDGV.Name = "cartListDGV";
@@ -532,8 +549,8 @@ namespace SMOA.UI.Forms
             // ProductName
             // 
             this.ProductName.DataPropertyName = "ProductName";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ProductName.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ProductName.DefaultCellStyle = dataGridViewCellStyle2;
             this.ProductName.HeaderText = "Product";
             this.ProductName.Name = "ProductName";
             this.ProductName.ReadOnly = true;
@@ -542,8 +559,8 @@ namespace SMOA.UI.Forms
             // Qty
             // 
             this.Qty.DataPropertyName = "Qty";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Qty.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Qty.DefaultCellStyle = dataGridViewCellStyle3;
             this.Qty.FillWeight = 50F;
             this.Qty.HeaderText = "Qty";
             this.Qty.Name = "Qty";
@@ -579,19 +596,18 @@ namespace SMOA.UI.Forms
             this.lbLlistOfOrders.TabIndex = 0;
             this.lbLlistOfOrders.Text = "List of Orders";
             // 
-            // btnTax
+            // btnViewOrders
             // 
-            this.btnTax.BackColor = System.Drawing.Color.Transparent;
-            this.btnTax.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnTax.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTax.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnTax.Location = new System.Drawing.Point(0, 681);
-            this.btnTax.Name = "btnTax";
-            this.btnTax.Size = new System.Drawing.Size(229, 31);
-            this.btnTax.TabIndex = 7;
-            this.btnTax.Text = "Configure Tax (%)";
-            this.btnTax.UseVisualStyleBackColor = false;
-            this.btnTax.Click += new System.EventHandler(this.btnTax_Click);
+            this.btnViewOrders.BackColor = System.Drawing.Color.Transparent;
+            this.btnViewOrders.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnViewOrders.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnViewOrders.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnViewOrders.Location = new System.Drawing.Point(0, 650);
+            this.btnViewOrders.Name = "btnViewOrders";
+            this.btnViewOrders.Size = new System.Drawing.Size(229, 31);
+            this.btnViewOrders.TabIndex = 8;
+            this.btnViewOrders.Text = "View Previous Orders";
+            this.btnViewOrders.UseVisualStyleBackColor = false;
             // 
             // frmMenu
             // 
@@ -683,5 +699,6 @@ namespace SMOA.UI.Forms
         private System.Windows.Forms.Label lbSubTotalVal;
         private System.Windows.Forms.Label lbTaxVal;
         private System.Windows.Forms.Button btnTax;
+        private System.Windows.Forms.Button btnViewOrders;
     }
 }
