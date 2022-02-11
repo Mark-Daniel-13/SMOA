@@ -16,7 +16,10 @@ namespace SMOA.UI.Forms
         private Business.Models.Product SelectedProduct;
         private Viewmodel.CartListViewModel selectedItemOnCart;
         private List<Viewmodel.CartListViewModel> CartList = new();
+
         private double discount = 0.00;
+        private double tax = 0.00;
+        private double subtotal = 0.00;
         public frmMenu()
         {
             InitializeComponent();
@@ -57,7 +60,7 @@ namespace SMOA.UI.Forms
             SelectedProduct = productModel;
             lbNameVal.Text = productModel is not null ? productModel.Name : "";
             lbDescVal.Text = productModel is not null ? productModel.Description : "";
-            lbPriceVal.Text = productModel is not null ? productModel.Price.ToString("N0") : "0.00";
+            lbPriceVal.Text = productModel is not null ? productModel.Price.ToString("N2") : "0.00";
         }
         private void btnBurger_Click(object sender, EventArgs e)
         {
@@ -93,14 +96,40 @@ namespace SMOA.UI.Forms
             }
         }
 
-        private void ComputeTotal() {
-            if (CartList is not null)
+        private void ComputeSubTotal() {
+            if (CartList is not null && CartList.Count > 0)
             {
-                var subtotal = CartList.Sum(s => s.SubTotal);
-                lbTotalVal.Text = subtotal.ToString("N0");
+                var _subtotal = CartList.Sum(s => s.SubTotal);
+                subtotal = _subtotal;
+                lbSubTotalVal.Text = _subtotal.ToString("N2");
             }
             else {
-                lbTotalVal.Text = "0.00";
+                subtotal = 0;
+                lbSubTotalVal.Text = "0.00";
+            }
+        }
+        private void ComputeTotal() {
+            if (CartList is not null && CartList.Count > 0) {
+
+                var discountedTotal = subtotal - discount;
+                lbTotalVal.Text = (discountedTotal + tax).ToString("N2");
+            }
+        }
+        private void ComputeDiscount() {
+            if (CartList is not null && CartList.Count > 0) {
+                var total = Convert.ToDouble(lbSubTotalVal.Text);
+                //assuming it's a one time coupon only
+                discount = total * 0.1;
+                lbDiscountVal.Text = discount.ToString("N2");
+            }
+        }
+        private void ComputeTax() {
+            if (CartList is not null && CartList.Count>0)
+            {
+                var total = Convert.ToDouble(lbSubTotalVal.Text);
+                var _tax = Convert.ToDouble(Business.Helpers.AppSettings.GetSetting("TaxPercent"));
+                tax = total * (_tax/100); // tax is the whole number tax value
+                lbTaxVal.Text = tax.ToString("N2");
             }
         }
         private void btnATC_Click(object sender, EventArgs e)
@@ -110,6 +139,7 @@ namespace SMOA.UI.Forms
             }
 
             GroupList();
+            
         }
         private void GroupList() {
             var groupedList = CartList.GroupBy(c => c.ProductName)
@@ -122,7 +152,13 @@ namespace SMOA.UI.Forms
 
             cartListDGV.DataSource = groupedList;
             cartListDGV.ClearSelection();
-            ComputeTotal();
+            ComputeSubTotal();
+            if (discount > 0)
+            {
+                ComputeDiscount();
+            }
+            ComputeTax();
+            
         }
 
         private void btnRemove_Click(object sender, EventArgs e)
@@ -166,16 +202,38 @@ namespace SMOA.UI.Forms
         private void btnAddDiscount_Click(object sender, EventArgs e)
         {
             if (tbCouponCode.Text == "GODISC10") {
-                var total = Convert.ToDouble(lbTotalVal.Text);
-                discount = total* 0.1;
-                var _total = total - discount;
+                ComputeDiscount();
                 MessageBox.Show("Coupon Successfully Applied!");
                 tbCouponCode.Clear();
-                lbTotalVal.Text = _total.ToString("N0");
             }
             else {
                 MessageBox.Show("Invalid Coupon Code!");
                 tbCouponCode.Clear();
+            }
+        }
+
+        private void lbSubTotalVal_TextChanged(object sender, EventArgs e)
+        {
+            ComputeTotal();
+        }
+
+        private void lbDiscountVal_TextChanged(object sender, EventArgs e)
+        {
+            ComputeTotal();
+        }
+
+        private void lbTaxVal_TextChanged(object sender, EventArgs e)
+        {
+            ComputeTotal();
+        }
+
+        private void btnTax_Click(object sender, EventArgs e)
+        {
+            using (var frmTax = new frmTax()) {
+                if (frmTax.ShowDialog() == DialogResult.OK)
+                {
+                    ComputeTax();
+                }
             }
         }
     }

@@ -29,10 +29,10 @@ namespace SMOA.UI.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.categoriesPNL = new System.Windows.Forms.Panel();
             this.btnLO = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
@@ -52,6 +52,9 @@ namespace SMOA.UI.Forms
             this.lbPrice = new System.Windows.Forms.Label();
             this.ItemsPnl = new System.Windows.Forms.Panel();
             this.CartListPanel = new System.Windows.Forms.Panel();
+            this.lbTaxVal = new System.Windows.Forms.Label();
+            this.lbDiscountVal = new System.Windows.Forms.Label();
+            this.lbSubTotalVal = new System.Windows.Forms.Label();
             this.lbTax = new System.Windows.Forms.Label();
             this.lbSubTotal = new System.Windows.Forms.Label();
             this.lbDiscount = new System.Windows.Forms.Label();
@@ -69,6 +72,7 @@ namespace SMOA.UI.Forms
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlLOOheader = new System.Windows.Forms.Panel();
             this.lbLlistOfOrders = new System.Windows.Forms.Label();
+            this.btnTax = new System.Windows.Forms.Button();
             this.categoriesPNL.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.HeaderPNL.SuspendLayout();
@@ -82,6 +86,7 @@ namespace SMOA.UI.Forms
             // categoriesPNL
             // 
             this.categoriesPNL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(216)))), ((int)(((byte)(234)))));
+            this.categoriesPNL.Controls.Add(this.btnTax);
             this.categoriesPNL.Controls.Add(this.btnLO);
             this.categoriesPNL.Controls.Add(this.tableLayoutPanel1);
             this.categoriesPNL.Controls.Add(this.HeaderPNL);
@@ -298,6 +303,9 @@ namespace SMOA.UI.Forms
             // CartListPanel
             // 
             this.CartListPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(216)))), ((int)(((byte)(234)))));
+            this.CartListPanel.Controls.Add(this.lbTaxVal);
+            this.CartListPanel.Controls.Add(this.lbDiscountVal);
+            this.CartListPanel.Controls.Add(this.lbSubTotalVal);
             this.CartListPanel.Controls.Add(this.lbTax);
             this.CartListPanel.Controls.Add(this.lbSubTotal);
             this.CartListPanel.Controls.Add(this.lbDiscount);
@@ -316,11 +324,50 @@ namespace SMOA.UI.Forms
             this.CartListPanel.Size = new System.Drawing.Size(290, 743);
             this.CartListPanel.TabIndex = 0;
             // 
+            // lbTaxVal
+            // 
+            this.lbTaxVal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbTaxVal.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbTaxVal.Location = new System.Drawing.Point(147, 496);
+            this.lbTaxVal.Name = "lbTaxVal";
+            this.lbTaxVal.Size = new System.Drawing.Size(131, 19);
+            this.lbTaxVal.TabIndex = 18;
+            this.lbTaxVal.Text = "0";
+            this.lbTaxVal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbTaxVal.TextChanged += new System.EventHandler(this.lbTaxVal_TextChanged);
+            // 
+            // lbDiscountVal
+            // 
+            this.lbDiscountVal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbDiscountVal.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbDiscountVal.Location = new System.Drawing.Point(147, 473);
+            this.lbDiscountVal.Name = "lbDiscountVal";
+            this.lbDiscountVal.Size = new System.Drawing.Size(131, 19);
+            this.lbDiscountVal.TabIndex = 17;
+            this.lbDiscountVal.Text = "0";
+            this.lbDiscountVal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbDiscountVal.TextChanged += new System.EventHandler(this.lbDiscountVal_TextChanged);
+            // 
+            // lbSubTotalVal
+            // 
+            this.lbSubTotalVal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lbSubTotalVal.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lbSubTotalVal.Location = new System.Drawing.Point(147, 450);
+            this.lbSubTotalVal.Name = "lbSubTotalVal";
+            this.lbSubTotalVal.Size = new System.Drawing.Size(131, 19);
+            this.lbSubTotalVal.TabIndex = 16;
+            this.lbSubTotalVal.Text = "0";
+            this.lbSubTotalVal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbSubTotalVal.TextChanged += new System.EventHandler(this.lbSubTotalVal_TextChanged);
+            // 
             // lbTax
             // 
             this.lbTax.AutoSize = true;
             this.lbTax.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbTax.Location = new System.Drawing.Point(6, 491);
+            this.lbTax.Location = new System.Drawing.Point(6, 497);
             this.lbTax.Name = "lbTax";
             this.lbTax.Size = new System.Drawing.Size(59, 19);
             this.lbTax.TabIndex = 15;
@@ -330,7 +377,7 @@ namespace SMOA.UI.Forms
             // 
             this.lbSubTotal.AutoSize = true;
             this.lbSubTotal.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbSubTotal.Location = new System.Drawing.Point(6, 445);
+            this.lbSubTotal.Location = new System.Drawing.Point(6, 451);
             this.lbSubTotal.Name = "lbSubTotal";
             this.lbSubTotal.Size = new System.Drawing.Size(67, 19);
             this.lbSubTotal.TabIndex = 14;
@@ -340,7 +387,7 @@ namespace SMOA.UI.Forms
             // 
             this.lbDiscount.AutoSize = true;
             this.lbDiscount.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lbDiscount.Location = new System.Drawing.Point(6, 468);
+            this.lbDiscount.Location = new System.Drawing.Point(6, 474);
             this.lbDiscount.Name = "lbDiscount";
             this.lbDiscount.Size = new System.Drawing.Size(68, 19);
             this.lbDiscount.TabIndex = 13;
@@ -408,19 +455,22 @@ namespace SMOA.UI.Forms
             // 
             // lbTotalVal
             // 
-            this.lbTotalVal.AutoSize = true;
+            this.lbTotalVal.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lbTotalVal.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbTotalVal.Location = new System.Drawing.Point(199, 537);
+            this.lbTotalVal.Location = new System.Drawing.Point(147, 528);
             this.lbTotalVal.Name = "lbTotalVal";
-            this.lbTotalVal.Size = new System.Drawing.Size(84, 30);
+            this.lbTotalVal.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.lbTotalVal.Size = new System.Drawing.Size(136, 30);
             this.lbTotalVal.TabIndex = 5;
-            this.lbTotalVal.Text = "10,000";
+            this.lbTotalVal.Text = "0";
+            this.lbTotalVal.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lbTotal
             // 
             this.lbTotal.AutoSize = true;
             this.lbTotal.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbTotal.Location = new System.Drawing.Point(6, 537);
+            this.lbTotal.Location = new System.Drawing.Point(6, 528);
             this.lbTotal.Name = "lbTotal";
             this.lbTotal.Size = new System.Drawing.Size(70, 30);
             this.lbTotal.TabIndex = 4;
@@ -436,28 +486,28 @@ namespace SMOA.UI.Forms
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cartListDGV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.cartListDGV.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cartListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cartListDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.cartListDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.cartListDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CartId,
             this.ProductName,
             this.Qty,
             this.SubTotal});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.cartListDGV.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.cartListDGV.DefaultCellStyle = dataGridViewCellStyle8;
             this.cartListDGV.Location = new System.Drawing.Point(6, 99);
             this.cartListDGV.MultiSelect = false;
             this.cartListDGV.Name = "cartListDGV";
@@ -482,8 +532,8 @@ namespace SMOA.UI.Forms
             // ProductName
             // 
             this.ProductName.DataPropertyName = "ProductName";
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ProductName.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ProductName.DefaultCellStyle = dataGridViewCellStyle6;
             this.ProductName.HeaderText = "Product";
             this.ProductName.Name = "ProductName";
             this.ProductName.ReadOnly = true;
@@ -492,8 +542,8 @@ namespace SMOA.UI.Forms
             // Qty
             // 
             this.Qty.DataPropertyName = "Qty";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.Qty.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.Qty.DefaultCellStyle = dataGridViewCellStyle7;
             this.Qty.FillWeight = 50F;
             this.Qty.HeaderText = "Qty";
             this.Qty.Name = "Qty";
@@ -528,6 +578,20 @@ namespace SMOA.UI.Forms
             this.lbLlistOfOrders.Size = new System.Drawing.Size(153, 30);
             this.lbLlistOfOrders.TabIndex = 0;
             this.lbLlistOfOrders.Text = "List of Orders";
+            // 
+            // btnTax
+            // 
+            this.btnTax.BackColor = System.Drawing.Color.Transparent;
+            this.btnTax.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnTax.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTax.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnTax.Location = new System.Drawing.Point(0, 681);
+            this.btnTax.Name = "btnTax";
+            this.btnTax.Size = new System.Drawing.Size(229, 31);
+            this.btnTax.TabIndex = 7;
+            this.btnTax.Text = "Configure Tax (%)";
+            this.btnTax.UseVisualStyleBackColor = false;
+            this.btnTax.Click += new System.EventHandler(this.btnTax_Click);
             // 
             // frmMenu
             // 
@@ -590,7 +654,7 @@ namespace SMOA.UI.Forms
         private System.Windows.Forms.Label lbNote;
         private System.Windows.Forms.DataGridView cartListDGV;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbDiscountVal;
         private System.Windows.Forms.Label lb;
         private System.Windows.Forms.Label lbPrice;
         private System.Windows.Forms.Label lbPriceVal;
@@ -615,5 +679,9 @@ namespace SMOA.UI.Forms
         private System.Windows.Forms.Label lbDiscount;
         private System.Windows.Forms.Label lbSubTotal;
         private System.Windows.Forms.Label lbTax;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lbSubTotalVal;
+        private System.Windows.Forms.Label lbTaxVal;
+        private System.Windows.Forms.Button btnTax;
     }
 }

@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,6 +47,7 @@
     <Compile Include="Globals.cs" />
     <Compile Include="Enums\Role.cs" />
     <Compile Include="Facades\User.cs" />
+    <Compile Include="Helpers\AppSettings.cs" />
     <Compile Include="Helpers\Encryption.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\User.cs" />
