@@ -1,5 +1,3 @@
-D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\obj\Debug\SMOA.Web.csprojAssemblyReference.cache
-D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\obj\Debug\SMOA.Web.csproj.CoreCompileInputs.cache
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\SMOA.Web.dll.config
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\SMOA.Web.dll
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\SMOA.Web.pdb
@@ -72,6 +70,7 @@ D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\Microsoft.Web
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\Newtonsoft.Json.dll
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\Owin.dll
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\SMOA.Business.dll
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\System.Numerics.Vectors.dll
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\System.Web.Helpers.dll
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\System.Web.Mvc.dll
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\System.Web.Optimization.dll
@@ -108,7 +107,8 @@ D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\Microsoft.Owi
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\SMOA.Data.pdb
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\SMOA.Data.dll.config
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\obj\Debug\SMOA.Web.csprojAssemblyReference.cache
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\obj\Debug\SMOA.Web.csproj.CoreCompileInputs.cache
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\obj\Debug\SMOA.Web.csproj.CopyComplete
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\obj\Debug\SMOA.Web.dll
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\obj\Debug\SMOA.Web.pdb
-D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Web\bin\System.Numerics.Vectors.dll

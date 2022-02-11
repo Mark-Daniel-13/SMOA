@@ -41,12 +41,18 @@ namespace SMOA.UI.Forms
             {
                 this.Hide();
                 var frmMenu = new Forms.frmMenu();
-                //frmAdmin.Closed += (s, args) => this.Close();
+                //frmMenu.Closed += (s, args) => this.Close();
                 frmMenu.Show();
             }
             else {
                 MessageBox.Show("Username or password is invalid");
             }
+        }
+        public void clearFields()
+        {
+            fUsername = "";
+            fPassword = "";
+            tbUsername.Focus();
         }
     }
 }

@@ -185,54 +185,6 @@ namespace SMOA.Data
 
     
 
-	[TableName("smoa.price")]
-
-
-
-	[PrimaryKey("PriceId")]
-
-
-
-
-	[ExplicitColumns]
-
-    public partial class price : SMOADB.Record<price>  
-    {
-
-
-
-		[Column] public int PriceId { get; set; }
-
-
-
-
-
-		[Column] public string ProductId { get; set; }
-
-
-
-
-
-		[Column] public double Amount { get; set; }
-
-
-
-
-
-		[Column] public DateTime CreationDate { get; set; }
-
-
-
-
-
-		[Column] public DateTime? EndDate { get; set; }
-
-
-
-	}
-
-    
-
 	[TableName("smoa.product")]
 
 
@@ -273,7 +225,7 @@ namespace SMOA.Data
 
 
 
-		[Column] public int PriceId { get; set; }
+		[Column] public double Price { get; set; }
 
 
 
@@ -303,9 +255,7 @@ namespace SMOA.Data
 
 
 
-	[PrimaryKey("RoleId")]
-
-
+	[PrimaryKey("RoleId", AutoIncrement=false)]
 
 
 	[ExplicitColumns]
