@@ -14,6 +14,9 @@ namespace SMOA.UI.Forms
     {
         private List<Business.Models.Product> loadedProductList;
         private Business.Models.Product SelectedProduct;
+        private Viewmodel.CartListViewModel selectedItemOnCart;
+        private List<Viewmodel.CartListViewModel> CartList = new();
+        private double discount = 0.00;
         public frmMenu()
         {
             InitializeComponent();
@@ -83,9 +86,96 @@ namespace SMOA.UI.Forms
                 };
 
                 loadedProductList = allBurgers;
+                SelectedProduct = null;
                 lbNameVal.Text = "";
                 lbDescVal.Text = "";
                 lbPriceVal.Text = "0.00";
+            }
+        }
+
+        private void ComputeTotal() {
+            if (CartList is not null)
+            {
+                var subtotal = CartList.Sum(s => s.SubTotal);
+                lbTotalVal.Text = subtotal.ToString("N0");
+            }
+            else {
+                lbTotalVal.Text = "0.00";
+            }
+        }
+        private void btnATC_Click(object sender, EventArgs e)
+        {
+            if (SelectedProduct is not null) {
+                CartList.Add(Viewmodel.CartListViewModel.ToModel(SelectedProduct,CartList.Count+1));
+            }
+
+            GroupList();
+        }
+        private void GroupList() {
+            var groupedList = CartList.GroupBy(c => c.ProductName)
+                                            .Select(cl => new Viewmodel.CartListViewModel
+                                            {
+                                                ProductName = cl.First().ProductName,
+                                                Qty = cl.Sum(q => q.Qty),
+                                                SubTotal = cl.Sum(s => s.SubTotal),
+                                            }).ToList();
+
+            cartListDGV.DataSource = groupedList;
+            cartListDGV.ClearSelection();
+            ComputeTotal();
+        }
+
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            if (selectedItemOnCart is not null)
+            {
+                CartList = CartList.Where(c => c.CartId != selectedItemOnCart?.CartId).ToList();
+                GroupList();
+
+                if (CartList.Where(c => c.ProductName == selectedItemOnCart.ProductName).Count() == 0)
+                {
+                    selectedItemOnCart = null;
+                }
+                btnRemove.Enabled = false;
+            }
+        }
+        private void CellClick(DataGridViewCellEventArgs e) {
+            if (e.RowIndex >= 0)
+            {
+                btnRemove.Enabled = true;
+                var selectedRow = this.cartListDGV.Rows[e.RowIndex];
+                string _productName = selectedRow.Cells["ProductName"].Value.ToString();
+                selectedItemOnCart = CartList.Where(c => c.ProductName == _productName).FirstOrDefault();
+            }
+        }
+        private void cartListDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CellClick(e);
+        }
+
+        private void cartListDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CellClick(e);
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            btnBurger.PerformClick();
+        }
+
+        private void btnAddDiscount_Click(object sender, EventArgs e)
+        {
+            if (tbCouponCode.Text == "GODISC10") {
+                var total = Convert.ToDouble(lbTotalVal.Text);
+                discount = total* 0.1;
+                var _total = total - discount;
+                MessageBox.Show("Coupon Successfully Applied!");
+                tbCouponCode.Clear();
+                lbTotalVal.Text = _total.ToString("N0");
+            }
+            else {
+                MessageBox.Show("Invalid Coupon Code!");
+                tbCouponCode.Clear();
             }
         }
     }
