@@ -38,7 +38,7 @@ using System.Linq;
 using System.Web;
 using PetaPoco;
 
-namespace SMOA
+namespace SMOA.Data
 {
 
 	public partial class SMOADB : Database

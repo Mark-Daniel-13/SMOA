@@ -1,0 +1,104 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.UI\\SMOA.UI.csproj": {}
+  },
+  "projects": {
+    "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.Business\\SMOA.Business.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.Business\\SMOA.Business.csproj",
+        "projectName": "SMOA.Business",
+        "projectPath": "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.Business\\SMOA.Business.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.Data\\SMOA.Data.csproj": {
+                "projectPath": "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.Data\\SMOA.Data.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.Data\\SMOA.Data.csproj": {
+      "restore": {
+        "projectUniqueName": "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.Data\\SMOA.Data.csproj",
+        "projectName": "SMOA.Data",
+        "projectPath": "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.Data\\SMOA.Data.csproj"
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.UI\\SMOA.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.UI\\SMOA.UI.csproj",
+        "projectName": "SMOA.UI",
+        "projectPath": "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.UI\\SMOA.UI.csproj",
+        "packagesPath": "C:\\Users\\mdtab\\.nuget\\packages\\",
+        "outputPath": "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.UI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\mdtab\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows7.0": {
+            "targetAlias": "net5.0-windows",
+            "projectReferences": {
+              "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.Business\\SMOA.Business.csproj": {
+                "projectPath": "D:\\PersonalProjects\\SMOA\\SmallMenuOrderingApplication\\SMOA.Business\\SMOA.Business.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows7.0": {
+          "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.28, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Business\bin\Debug\SMOA.Business.dll
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Business\bin\Debug\SMOA.Business.pdb
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Business\bin\Debug\SMOA.Data.dll
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Business\bin\Debug\SMOA.Data.pdb
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Business\bin\Debug\SMOA.Data.dll.config
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Business\obj\Debug\SMOA.Business.csprojAssemblyReference.cache
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Business\obj\Debug\SMOA.Business.csproj.CoreCompileInputs.cache
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Business\obj\Debug\SMOA.Business.csproj.CopyComplete
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Business\obj\Debug\SMOA.Business.dll
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.Business\obj\Debug\SMOA.Business.pdb

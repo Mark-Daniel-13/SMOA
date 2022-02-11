@@ -13,6 +13,14 @@ namespace SMOA.Web
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Menu
+            routes.MapRoute(
+                name: "Menu",
+                url: "Menu/",
+                defaults: new { culture = "en-US", controller = "Account", action = "Menu" },
+                namespaces: new[] { "SMOA.Web.Controllers" }
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
