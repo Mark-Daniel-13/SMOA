@@ -32,3 +32,4 @@ D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\bin\Debug\net5.0-w
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\bin\Debug\net5.0-windows\MySql.Data.dll
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\bin\Debug\net5.0-windows\Ubiety.Dns.Core.dll
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\bin\Debug\net5.0-windows\ZstdNet.dll
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Forms.frmMenu.resources

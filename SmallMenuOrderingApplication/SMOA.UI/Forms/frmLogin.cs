@@ -39,7 +39,10 @@ namespace SMOA.UI.Forms
             var user = Business.Facades.User.GetByUsernamePassword(fUsername,fPassword);
             if (user is not null)
             {
-                MessageBox.Show("Success");
+                this.Hide();
+                var frmMenu = new Forms.frmMenu();
+                //frmAdmin.Closed += (s, args) => this.Close();
+                frmMenu.Show();
             }
             else {
                 MessageBox.Show("Username or password is invalid");
