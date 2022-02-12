@@ -35,3 +35,4 @@ D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-w
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.pdb
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.genruntimeconfig.cache
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Forms.frmCheckOut.resources
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Forms.frmOrders.resources

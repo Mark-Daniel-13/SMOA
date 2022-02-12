@@ -53,5 +53,15 @@ namespace SMOA.Business.Facades
                 return ToModel(dbProduct);
             }
         }
+        public static Models.Product GetById(int productId)
+        {
+            using (PetaPoco.Database db = new PetaPoco.Database(Globals.DatabaseName))
+            {
+                var dbProduct = db.FirstOrDefault<Data.product>("WHERE ProductId = @0 AND EndDate IS NULL", productId);
+                if (dbProduct == null) return null;
+
+                return ToModel(dbProduct);
+            }
+        }
     }
 }

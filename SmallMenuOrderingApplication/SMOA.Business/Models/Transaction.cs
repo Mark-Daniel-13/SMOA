@@ -8,7 +8,7 @@ namespace SMOA.Business.Models
 {
     public class Transaction
     {
-        public int TransctionId { get; set; }
+        public int TransactionId { get; set; }
         public double Discount { get; set; }
         public double Tax { get; set; }
         public double TotalAmount { get; set; }

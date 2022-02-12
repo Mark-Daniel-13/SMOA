@@ -290,5 +290,12 @@ namespace SMOA.UI.Forms
             cartListDGV.Refresh();
             btnBurger.PerformClick();
         }
+
+        private void btnViewOrders_Click(object sender, EventArgs e)
+        {
+            using (var frmOrders = new Forms.frmOrders()) {
+                frmOrders.ShowDialog();
+            };
+        }
     }
 }

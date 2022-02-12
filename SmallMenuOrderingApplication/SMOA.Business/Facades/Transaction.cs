@@ -8,23 +8,35 @@ namespace SMOA.Business.Facades
 {
     public class Transaction
     {
-        public Models.Transaction ToModel(Data.transaction transaction) {
+        public static Models.Transaction ToModel(Data.transaction transaction) {
             return new Models.Transaction { 
-                TransctionId = transaction.TransactionId,
+                TransactionId = transaction.TransactionId,
                 Discount = transaction.Discount,
                 Tax = transaction.Tax,
                 TotalAmount = transaction.TotalAmount,
             };
         }
-        public List<Models.Transaction> ToModelList(List<Data.transaction> transactions) {
+        public static List<Models.Transaction> ToModelList(List<Data.transaction> transactions) {
             var transactionList = new List<Models.Transaction>();
             transactionList = transactions.Select(transaction => new Models.Transaction() {
-                TransctionId = transaction.TransactionId,
+                TransactionId = transaction.TransactionId,
                 Discount = transaction.Discount,
                 Tax = transaction.Tax,
                 TotalAmount = transaction.TotalAmount,
             }).ToList();
             return transactionList;
+        }
+        //Mapping for transctionDetails
+        public static List<Models.TransactionDetails> ToModelList(List<Data.transactiondetail> transactiondetails) {
+            var transactionDetailsList = new List<Models.TransactionDetails>();
+            transactionDetailsList = transactiondetails.Select(detail => new Models.TransactionDetails()
+            {
+                TransactionDetailsId = detail.TransactionDetailId,
+                TransactionId = detail.TransactionId,
+                ProductId = detail.ProductId,
+                Quantity = detail.Quantity,
+            }).ToList();
+            return transactionDetailsList;
         }
         public static bool AddTransaction(Models.Transaction transaction,List<Models.TransactionDetails> transactionDetails)
         {
@@ -37,7 +49,7 @@ namespace SMOA.Business.Facades
 
                         var dbTransaction = new Data.transaction()
                         {
-                            TransactionId = transaction.TransctionId,
+                            TransactionId = transaction.TransactionId,
                             Tax = transaction.Tax,
                             Discount = transaction.Discount,
                             TotalAmount = transaction.TotalAmount,
@@ -65,6 +77,24 @@ namespace SMOA.Business.Facades
             catch (Exception msg)
             {
                 return false;
+            }
+        }
+        public static List<Models.Transaction> GetAll()
+        {
+            using (PetaPoco.Database db = new PetaPoco.Database(Globals.DatabaseName))
+            {
+                var dbTransactions = db.Fetch<Data.transaction>("WHERE EndDate IS NULL");
+                if (dbTransactions == null) return null;
+
+                return ToModelList(dbTransactions);
+            }
+        }
+        public static List<Models.TransactionDetails> GetAllDetailsByTransactionId(int transactionId) {
+            using (PetaPoco.Database db = new PetaPoco.Database(Globals.DatabaseName)){
+                var dbTransactionDetails = db.Fetch<Data.transactiondetail>("Where TransactionId = @0", transactionId);
+                if (dbTransactionDetails == null) return null;
+
+                return ToModelList(dbTransactionDetails);
             }
         }
     }
