@@ -1,0 +1,17 @@
+Project: C# Winforms
+IDE: Visual Studio 2019 Community
+Database: MySQL
+ORM: Petapoco
+
+
+Db Data User Log In Credentials:
+Username: admin
+Password: admin123
+
+Note: Please make sure to check database connection string if a problem occur on the connection of database. Verify if the schema security is correct. Please do double check the connectionstring source, id and password if you're using different database credentials.
+
+If database credentials used are different, please do check the connections string for .Data Layer on App.Config. and Rebuild the db  mapping by going to Generated folder>Right click Database.tt and click "Run Custom Tool".
+
+If by any chance it's saying .Data is missing on Facades just go to .Data Layer>Generated folder> Database.tt>Database.cs then change the class namespace from "SMOA" to "SMOA.Data"
+
+Thank you for making me participate on this exam. I hope i'll hear a feedback from you guys soon! Happy Weekends! :)

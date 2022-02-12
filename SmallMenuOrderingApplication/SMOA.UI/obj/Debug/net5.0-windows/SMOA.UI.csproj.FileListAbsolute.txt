@@ -20,8 +20,10 @@ D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\bin\Debug\net5.0-w
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\bin\Debug\net5.0-windows\SMOA.Data.pdb
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\bin\Debug\net5.0-windows\SMOA.Data.dll.config
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.csprojAssemblyReference.cache
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Forms.frmCheckOut.resources
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Forms.frmLogin.resources
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Forms.frmMenu.resources
+D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Forms.frmOrders.resources
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Forms.frmTax.resources
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Properties.Resources.resources
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.csproj.GenerateResource.cache
@@ -34,5 +36,3 @@ D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-w
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\ref\SMOA.UI.dll
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.pdb
 D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.genruntimeconfig.cache
-D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Forms.frmCheckOut.resources
-D:\PersonalProjects\SMOA\SmallMenuOrderingApplication\SMOA.UI\obj\Debug\net5.0-windows\SMOA.UI.Forms.frmOrders.resources
